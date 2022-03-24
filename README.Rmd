@@ -35,7 +35,22 @@ How do you play?
 ```{r example}
 library(worldle)
 ## basic example code
-play_wordle()
+# play_wordle() # that function doesn't exist yet
 ```
 
+Get the shapefile of a country:
+```{r eval=FALSE}
+url <- "https://geodata.ucdavis.edu/gadm/gadm4.0/shp/gadm40_AUT_shp.zip"
+austria <- get_shapes(url)
+austria <- thin(austria, 0.001)
+```
 
+Now plot the country: 
+```{r}
+library(ggplot2)
+library(dplyr)
+
+austria %>% ggplot() + geom_sf() + theme_void()
+```
+
+Would you have guessed that this is Austria?
